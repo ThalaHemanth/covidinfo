@@ -1,11 +1,8 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import axios from 'axios';
-import useSWR from 'swr';
+import { Switch, Route } from 'react-router-dom';
 
 import Home from './components/pages/Home';
 
-import { ApiContextProvider, ApiProvider, useApiContext } from './contexts/api';
+import { useApiContext } from './contexts/api';
 import Navbar from './components/Navbar';
 import TweetFeed from './components/pages/TweetFeed';
 

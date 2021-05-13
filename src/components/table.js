@@ -1,11 +1,4 @@
-import { useEffect, useState } from 'react';
-
-import { useApiContext } from '../contexts/api';
-import { useLocation } from 'react-router-dom';
-import { NEXT, PREV } from '../constants/constants';
-
 export const Table = ({ data }) => {
-  console.log(data);
   function renderTableHeaders() {
     let headers;
     headers = data ? Object.keys(data[0]).map((key) => key) : [];
@@ -45,7 +38,7 @@ export const Table = ({ data }) => {
                           >
                             {Object.values(row).map((col, i) => {
                               return (
-                                <td className="px-6 py-4  text-sm font-medium text-gray-900">
+                                <td className="px-6 py-4 text-sm font-medium text-gray-900">
                                   {col}
                                 </td>
                               );
