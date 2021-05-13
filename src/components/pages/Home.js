@@ -1,8 +1,6 @@
-import { Suspense, useEffect, useRef, useState } from 'react';
-import { useHistory, useLocation, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { Table } from '../table';
-
-import { useApiContext } from '../../contexts/api';
 
 import { NEXT, PREV } from '../../constants/constants';
 
@@ -13,8 +11,6 @@ function Container(props) {
     </div>
   );
 }
-
-const Loading = () => <div>Loading</div>;
 
 export default function Home(props) {
   const data = props.data?.data;
@@ -74,7 +70,6 @@ export default function Home(props) {
   ) : (
     <>
       <Container>
-        <div className="mt-6" />
         <Table data={tableData} />
         <div className="flex flex-row bg-yellow-500">
           <button onClick={() => turnPage(PREV)}>Prev</button>
