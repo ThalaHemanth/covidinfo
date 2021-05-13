@@ -9,7 +9,7 @@ import { ApiProvider } from './contexts/api';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router basename="/index.html">
+    <Router basename="/React">
       <ApiProvider>
         <App />
       </ApiProvider>
