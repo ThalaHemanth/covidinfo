@@ -71,20 +71,7 @@ export default function Home(props) {
     <>
       <Container>
         <Table data={tableData} />
-        {/*<div className="flex flex-row bg-yellow-500">*/}
-        {/*  <button onClick={() => turnPage(PREV)}>Prev</button>*/}
-        {/*  <pre>*/}
-        {/*    Showing*/}
-        {/*    {currentPage}*/}
-        {/*    of*/}
-        {/*    {totalPages}*/}
-        {/*  </pre>*/}
-        {/*  <button onClick={() => turnPage(NEXT)}>Next</button>*/}
-        {/*  <Link to={location.pathname === '/' ? '/remdesivir' : '/'}>*/}
-        {/*    Click*/}
-        {/*  </Link>*/}
-        {/*</div>*/}
-        <div className="w-full h-12  flex flex-row justify-center -mt-4 pr-14">
+        <div className="w-full h-12 bg-gray-200  flex flex-row justify-center -mt-4 pr-14">
           <p className="text-sm text-gray-700 ml-16 mt-2 -mr-2">
             Showing{' '}
             <span className="font-medium">

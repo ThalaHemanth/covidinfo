@@ -21,7 +21,7 @@ export const Table = ({ data }) => {
   }
   return data?.length ? (
     <>
-      <div className="bg-gray-200 py-6">
+      <div className="bg-gray-200 py-6 mb-3">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="flex flex-col">
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
