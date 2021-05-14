@@ -71,18 +71,42 @@ export default function Home(props) {
     <>
       <Container>
         <Table data={tableData} />
-        <div className="flex flex-row bg-yellow-500">
-          <button onClick={() => turnPage(PREV)}>Prev</button>
-          <pre>
-            Showing
-            {currentPage}
-            of
-            {totalPages}
-          </pre>
-          <button onClick={() => turnPage(NEXT)}>Next</button>
-          <Link to={location.pathname === '/' ? '/remdesivir' : '/'}>
-            Click
-          </Link>
+        {/*<div className="flex flex-row bg-yellow-500">*/}
+        {/*  <button onClick={() => turnPage(PREV)}>Prev</button>*/}
+        {/*  <pre>*/}
+        {/*    Showing*/}
+        {/*    {currentPage}*/}
+        {/*    of*/}
+        {/*    {totalPages}*/}
+        {/*  </pre>*/}
+        {/*  <button onClick={() => turnPage(NEXT)}>Next</button>*/}
+        {/*  <Link to={location.pathname === '/' ? '/remdesivir' : '/'}>*/}
+        {/*    Click*/}
+        {/*  </Link>*/}
+        {/*</div>*/}
+        <div className="w-full h-12  flex flex-row justify-center -mt-4 pr-14">
+          <p className="text-sm text-gray-700 ml-16 mt-2 -mr-2">
+            Showing{' '}
+            <span className="font-medium">
+              {firstIndex === 0 ? 1 : firstIndex}
+            </span>{' '}
+            to <span className="font-medium">{lastIndex}</span> items of{' '}
+            <span className="font-medium">{totalPages}</span> pages
+          </p>
+          <div className="flex-1 flex  sm:justify-end mb-3">
+            <a
+              onClick={() => turnPage(PREV)}
+              className="inline-flex items-center cursor-pointer  px-5 border border-white text-sm  rounded-md text-white bg-covidOrange"
+            >
+              Previous
+            </a>
+            <a
+              onClick={() => turnPage(NEXT)}
+              className=" ml-3 mr-3 inline-flex items-center px-5 cursor-pointer  border border-white text-sm  rounded-md text-white bg-covidOrange"
+            >
+              Next
+            </a>
+          </div>
         </div>
       </Container>
     </>
