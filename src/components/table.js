@@ -8,7 +8,7 @@ export const Table = ({ data }) => {
         {headers?.map((header, index) => {
           return (
             <th
-              key={index}
+              key={header.length * Math.random()}
               scope="col"
               className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
@@ -30,15 +30,19 @@ export const Table = ({ data }) => {
                   <table className="min-w-full divide-y-2 divide-gray-200">
                     <thead className="bg-gray-50">{renderTableHeaders()}</thead>
                     <tbody data-todo-x-max="2">
-                      {data?.map((row) => {
+                      {data?.map((row, index) => {
                         return (
                           <tr
+                            key={index}
                             className="bg-white"
                             data-todo-x-description="Odd row"
                           >
                             {Object.values(row).map((col, i) => {
                               return (
-                                <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                                <td
+                                  key={i}
+                                  className="px-6 py-4 text-sm font-medium text-gray-900"
+                                >
                                   {col}
                                 </td>
                               );

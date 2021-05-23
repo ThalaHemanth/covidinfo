@@ -17,7 +17,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "serve": "serve -s build"
   },
   "browserslist": {
     "production": [
@@ -43,6 +44,7 @@
     "eslint-config-satya164": "^3.1.10",
     "postcss": "7",
     "prettier": "^2.2.1",
+    "serve": "^11.3.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }

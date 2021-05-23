@@ -32,7 +32,7 @@ export default function Home(props) {
     setLastIndex(currentPage * pageLimit);
     setTableData(data?.slice(firstIndex, lastIndex));
     setIsLoading(false);
-  }, []);
+  }, [props.data]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -65,7 +65,7 @@ export default function Home(props) {
     }
   }
 
-  return isLoading ? (
+  return !tableData || !props.data ? (
     <div>Loading</div>
   ) : (
     <>
