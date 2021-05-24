@@ -14,6 +14,7 @@ function Container(props) {
 
 export default function Home(props) {
   const data = props.data?.data;
+  const [propdsData, setPropsData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [firstIndex, setFirstIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(10);
@@ -26,13 +27,14 @@ export default function Home(props) {
   const location = useLocation();
 
   useEffect(() => {
+    setPropsData(props.data);
     setCurrentPage(1);
     setTotalPages(Math.floor(data?.length / pageLimit));
     setFirstIndex(currentPage * pageLimit - pageLimit);
     setLastIndex(currentPage * pageLimit);
     setTableData(data?.slice(firstIndex, lastIndex));
     setIsLoading(false);
-  }, [props.data]);
+  }, [data]);
 
   useEffect(() => {
     setCurrentPage(1);
