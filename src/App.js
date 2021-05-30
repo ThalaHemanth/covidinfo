@@ -5,6 +5,9 @@ import Home from './components/pages/Home';
 import { useApiContext } from './contexts/api';
 import Navbar from './components/Navbar';
 import TweetFeed from './components/pages/TweetFeed';
+import SearchResults from './components/pages/SearchResults';
+import NoSearchResults from './components/pages/NoSearchResults';
+import Links from './components/pages/Links';
 
 function App() {
   const { city, rem } = useApiContext();
@@ -19,6 +22,9 @@ function App() {
         <Route path="/remdesivir">
           <Home data={rem} />
         </Route>
+        <Route path="/search" component={SearchResults} />
+        <Route path="/nosearchresults" component={NoSearchResults} />
+        <Route path="/links" component={Links} />
       </Switch>
     </>
   );

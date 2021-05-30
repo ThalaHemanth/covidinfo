@@ -1,0 +1,7 @@
+how to take screenshots
+https://hackernoon.com/how-to-take-screenshots-in-the-browser-using-javascript-l92k3xq7
+
+Search Screen Implementation.
+make it simple
+create a Search Component which basically extends Home Component
+if there is search data display table else put a nosearch data component with goback to homepage ref.

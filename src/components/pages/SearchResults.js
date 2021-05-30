@@ -3,6 +3,8 @@ import { useLocation, Link } from 'react-router-dom';
 import { Table } from '../table';
 
 import { NEXT, PREV } from '../../constants/constants';
+import { useApiContext } from '../../contexts/api';
+import NoSearchResults from './NoSearchResults';
 
 export const Container = (props) => {
   return (
@@ -12,43 +14,29 @@ export const Container = (props) => {
   );
 };
 
-export default function Home(props) {
-  const data = props.data?.data;
-  const [propsData, setPropsData] = useState([]);
+export default function SearchResults(props) {
+  const { searchData } = useApiContext();
   const [currentPage, setCurrentPage] = useState(1);
   const [firstIndex, setFirstIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(10);
   const [tableData, setTableData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   const [totalPages, setTotalPages] = useState();
   const pageLimit = 10;
 
-  const location = useLocation();
-
-  useEffect(() => {
-    setPropsData(props.data);
-    setCurrentPage(1);
-    setTotalPages(Math.floor(data?.length / pageLimit));
-    setFirstIndex(currentPage * pageLimit - pageLimit);
-    setLastIndex(currentPage * pageLimit);
-    setTableData(data?.slice(firstIndex, lastIndex));
-    setIsLoading(false);
-  }, [data]);
-
   useEffect(() => {
     setCurrentPage(1);
-    setTotalPages(Math.floor(data?.length / pageLimit));
+    setTotalPages(Math.floor(searchData?.length / pageLimit));
     setFirstIndex(currentPage * pageLimit - pageLimit);
     setLastIndex(currentPage * pageLimit);
-    setTableData(data?.slice(firstIndex, lastIndex));
-  }, [location]);
+    setTableData(searchData?.slice(firstIndex, lastIndex));
+  }, [searchData]);
 
   useEffect(() => {
-    setTotalPages(Math.floor(data?.length / pageLimit));
+    setTotalPages(Math.floor(searchData?.length / pageLimit));
     setFirstIndex(currentPage * pageLimit - pageLimit);
     setLastIndex(currentPage * pageLimit);
-    setTableData(data?.slice(firstIndex, lastIndex));
+    setTableData(searchData?.slice(firstIndex, lastIndex));
   }, [currentPage, firstIndex, totalPages]);
 
   function turnPage(button) {
@@ -60,6 +48,7 @@ export default function Home(props) {
       setCurrentPage((prevState) => prevState - 1);
     }
     if (button === NEXT) {
+      console.log(currentPage, totalPages);
       if (currentPage === totalPages) {
         return;
       }
@@ -67,7 +56,11 @@ export default function Home(props) {
     }
   }
 
-  return !tableData || !props.data ? (
+  if (searchData.length === 0) {
+    return <NoSearchResults />;
+  }
+
+  return !tableData ? (
     <div>Loading</div>
   ) : (
     <>
